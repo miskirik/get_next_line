@@ -11,29 +11,31 @@
 /* ************************************************************************** */
 #include "get_next_line.h"
 
-char	*ft_buff(int fd,char *str)
+char	*ft_buff(int fd, char *str)
 {
-	int	rd_bytes;
+	int		rd_bytes;
 	char	*buff;
+
 	buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if(!buff)
-		return(NULL);
+	if (!buff)
+		return (NULL);
 	rd_bytes = 1;
-	while(!ft_strchr(str, '\n') && rd_bytes != 0);
+	while (!ft_strchr(str, '\n') && rd_bytes != 0)
 	{
 		rd_bytes = read(fd, buff, BUFFER_SIZE);
 		if (rd_bytes == -1)
 		{
 			free(str);
 			free(buff);
-			return(NULL);
+			return (NULL);
 		}
 		buff[rd_bytes] = '\0';
 		str = ft_strjoin(str, buff);
 	}
 	free(buff);
-	return(str);
+	return (str);
 }
+
 char	*get_next_line(int fd)
 {
 	char				*line;
@@ -48,4 +50,3 @@ char	*get_next_line(int fd)
 	str = ft_last_str(str);
 	return (line);
 }
-
