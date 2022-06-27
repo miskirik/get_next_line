@@ -6,7 +6,7 @@
 /*   By: miskirik <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 01:40:21 by miskirik          #+#    #+#             */
-/*   Updated: 2022/06/25 01:40:22 by miskirik         ###   ########.fr       */
+/*   Updated: 2022/06/27 14:27:44 by miskirik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line_bonus.h"
@@ -39,7 +39,7 @@ char	*ft_buff(int fd, char *str)
 char	*get_next_line(int fd)
 {
 	char				*line;
-	static char			*str[4096];
+	static char			*str[1024];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
